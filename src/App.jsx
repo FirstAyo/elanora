@@ -1,0 +1,26 @@
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Shop from "./pages/Shop";
+import Products from "./pages/Products";
+import Blog from "./pages/Blog";
+import Contact from "./pages/Contact";
+import About from "./pages/About";
+import PrivacyPage from "./pages/PrivacyPage";
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;
