@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Container from "../components/ui/Container";
 import Hero from "../components/sections/Hero";
+import CategoryCard from "../components/sections/CategoryCard";
+import women from "/images/women-1.jpg";
+import watches from "/images/watches.jpg";
+import footwear from "/images/footwear.jpg";
+import accessories from "/images/accessories.jpg";
+import Trending from "../components/sections/Trending";
 
 // Static slide data for the hero section
 // (kept outside the component so it's not recreated on every render)
@@ -27,6 +33,13 @@ const heroSlides = [
   },
 ];
 
+// const cardImages = [
+//   { name: "women", image: "/images/women.jpg" },
+//   { name: "watches", image: "/images/watches.jpg" },
+//   { name: "footwear", image: "/images/footwear.jpg" },
+//   { name: "accessories", image: "/images/accessories.jpg" },
+// ];
+
 function Home() {
   // Track which slide is currently visible (0, 1, 2, ...)
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -35,7 +48,7 @@ function Home() {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 4000);
+    }, 10000);
 
     // Clean up the interval when the component unmounts
     return () => clearInterval(intervalId);
@@ -82,6 +95,35 @@ function Home() {
               );
             })}
           </div>
+          <div className="grid grid-cols-2 gap-10 px-14 my-10">
+            <CategoryCard
+              className="h-full object-cover"
+              images={women}
+              title="Women"
+            />
+            <div className="grid grid-cols-2 gap-10">
+              <div className="grid grid-rows-2 gap-10">
+                <CategoryCard
+                  className="h-full object-cover"
+                  images={accessories}
+                  title="Accessories"
+                />
+                <CategoryCard
+                  className="h-full object-cover"
+                  images={footwear}
+                  title="Footwear"
+                />
+              </div>
+
+              <CategoryCard
+                className="h-full object-cover"
+                images={watches}
+                title="Watches"
+              />
+            </div>
+          </div>
+
+          <Trending />
         </div>
       </Container>
     </>
