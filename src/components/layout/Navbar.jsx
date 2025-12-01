@@ -22,7 +22,7 @@ function Navbar() {
   return (
     <>
       <Container>
-        <header className="flex justify-between items-center py-4 px-4 lg:px-6 bg-white">
+        <header className="flex justify-between items-center py-4 px-4 lg:px-6 bg-white border-b border-gray-300">
           <Link to="/" className="text-3xl font-bold">
             Elanora
           </Link>
