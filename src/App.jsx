@@ -6,10 +6,12 @@ import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import PrivacyPage from "./pages/PrivacyPage";
+import Navbar from "./components/layout/Navbar";
 
 function App() {
   return (
     <BrowserRouter>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
