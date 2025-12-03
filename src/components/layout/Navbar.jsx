@@ -24,12 +24,12 @@ function Navbar() {
       <Container>
         <header className="flex justify-between items-center py-4 px-4 lg:px-6 bg-white border-b border-gray-300">
           <Link to="/" className="text-3xl font-bold">
-            Elanora
+            Élanora
           </Link>
           <nav className="text-lg">
             <ul className="flex justify-center items-center gap-6">
               {navMenus.map((menu, index) => (
-                <li key={index} className="hover:text-blue-300">
+                <li key={index} className="font-semibold transition duration-500 hover:text-blue-500">
                   <Link to={menu.path}>{menu.name}</Link>
                 </li>
               ))}

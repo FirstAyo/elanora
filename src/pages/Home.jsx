@@ -123,7 +123,9 @@ function Home() {
             </div>
           </div>
 
-          <Trending />
+          <div className="px-14">
+            <Trending />
+          </div>
         </div>
       </Container>
     </>
