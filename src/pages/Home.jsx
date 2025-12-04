@@ -7,6 +7,7 @@ import watches from "/images/watches.jpg";
 import footwear from "/images/footwear.jpg";
 import accessories from "/images/accessories.jpg";
 import Trending from "../components/sections/Trending";
+import LookBook from "../components/sections-cards/LookBook";
 
 // Static slide data for the hero section
 // (kept outside the component so it's not recreated on every render)
@@ -123,8 +124,9 @@ function Home() {
             </div>
           </div>
 
-          <div className="px-14">
+          <div className="px-14 flex flex-col gap-10">
             <Trending />
+            <LookBook />
           </div>
         </div>
       </Container>
