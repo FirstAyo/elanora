@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "title": "Summer Styles That Will Define 2025",
+    "image": "/images/watches.jpg",
+    "excerpt": "A fresh look at the silhouettes, colors, and fabrics that are set to dominate summer fashion in 2025.",
+    "author": "Alex Morgan",
+    "date": "May 10"
+  },
+  {
+    "id": 2,
+    "title": "How Minimalism Is Reshaping Modern Wardrobes",
+    "image": "/images/summer.jpg",
+    "excerpt": "Why fewer, better pieces are becoming the foundation of contemporary style and conscious shopping.",
+    "author": "Jamie Lee",
+    "date": "May 18"
+  },
+  {
+    "id": 3,
+    "title": "The Rise of Sustainable Fashion Brands",
+    "image": "/images/accessories.jpg",
+    "excerpt": "Eco-friendly materials and ethical production are no longer optional in the fashion industry.",
+    "author": "Sophia Turner",
+    "date": "June 2"
+  },
+  {
+    "id": 4,
+    "title": "Streetwear Trends You’ll See Everywhere This Year",
+    "image": "/images/footwear.jpg",
+    "excerpt": "From oversized fits to bold graphics, these streetwear trends are taking over urban style.",
+    "author": "Marcus Hill",
+    "date": "June 7"
+  },
+  {
+    "id": 5,
+    "title": "Building a Capsule Wardrobe That Lasts",
+    "image": "/images/summer.jpg",
+    "excerpt": "Learn how to curate a timeless wardrobe with versatile pieces that work year after year.",
+    "author": "Emily Carter",
+    "date": "June 12"
+  },
+  {
+    "id": 6,
+    "title": "Colors That Will Dominate Fashion This Season",
+    "image": "/images/image-1.jpg",
+    "excerpt": "A guide to the shades and tones designers and brands are embracing this season.",
+    "author": "Noah Williams",
+    "date": "June 20"
+  },
+  {
+    "id": 7,
+    "title": "Why Comfort-First Fashion Is Here to Stay",
+    "image": "/images/image-2.jpg",
+    "excerpt": "The shift toward relaxed fits and soft fabrics reflects a deeper change in lifestyle and work.",
+    "author": "Hannah Brooks",
+    "date": "June 25"
+  },
+  {
+    "id": 8,
+    "title": "How to Style Basics Without Looking Boring",
+    "image": "/images/image-3.jpg",
+    "excerpt": "Simple styling tips that turn everyday essentials into polished, intentional outfits.",
+    "author": "Daniel Foster",
+    "date": "July 3"
+  },
+  {
+    "id": 9,
+    "title": "Behind the Scenes of a Modern Lookbook Shoot",
+    "image": "/images/footwear.jpg",
+    "excerpt": "An inside look at the creative process behind fashion photography and styling direction.",
+    "author": "Olivia Grant",
+    "date": "July 10"
+  },
+  {
+    "id": 10,
+    "title": "Accessories That Instantly Elevate Any Outfit",
+    "image": "/images/women-1.jpg",
+    "excerpt": "Small details can make a big impact—these accessories bring instant polish to your look.",
+    "author": "Ryan Patel",
+    "date": "July 15"
+  }
+]

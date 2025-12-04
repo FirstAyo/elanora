@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function TrendingCards({ items }) {
   const [hoverId, setHoverId] = useState(null);
@@ -46,7 +47,7 @@ function TrendingCards({ items }) {
         })}
       </div>
       <div className="flex justify-center items-center">
-        <button className="border rounded-full px-8 py-2">Load more</button>
+        <Link to="/products" className="border rounded-full px-8 py-2">Load more</Link>
       </div>
     </>
   );

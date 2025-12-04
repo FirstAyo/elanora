@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Container from "../components/ui/Container";
 import Hero from "../components/sections/Hero";
-import CategoryCard from "../components/sections/CategoryCard";
+import CategoryCard from "../components/sections-cards/CategoryCard";
 import women from "/images/women-1.jpg";
 import watches from "/images/watches.jpg";
 import footwear from "/images/footwear.jpg";
 import accessories from "/images/accessories.jpg";
 import Trending from "../components/sections/Trending";
-import LookBook from "../components/sections-cards/LookBook";
+import LookBook from "../components/sections/LookBook";
+import BestSellers from "../components/sections/BestSellers";
+import Blog from "../components/sections/Blog";
 
 // Static slide data for the hero section
 // (kept outside the component so it's not recreated on every render)
@@ -59,7 +61,7 @@ function Home() {
     <>
       <Container>
         {/* Wrapper for the hero slider */}
-        <div className="relative overflow-hidden">
+        <div className="relative">
           {/* Key forces React to treat each slide as a distinct element,
               which helps with transitions */}
           <div
@@ -96,37 +98,47 @@ function Home() {
               );
             })}
           </div>
+
           <div className="grid grid-cols-2 gap-10 px-14 my-10">
+            {/* Left big card */}
             <CategoryCard
-              className="h-full object-cover"
               images={women}
               title="Women"
+              className="aspect-4/5" // or aspect-[16/9], tweak as you like
             />
-            <div className="grid grid-cols-2 gap-10">
-              <div className="grid grid-rows-2 gap-10">
+
+            {/* Right side grid */}
+            <div className="aspect-4/5">
+              <div className="grid grid-cols-2 grid-rows-2 gap-10 h-full">
+                {/* Top-left (half height) */}
                 <CategoryCard
-                  className="h-full object-cover"
                   images={accessories}
                   title="Accessories"
+                  className="h-full"
                 />
+
+                {/* Right column spanning both rows (full height) */}
                 <CategoryCard
-                  className="h-full object-cover"
+                  images={watches}
+                  title="Watches"
+                  className="row-span-2 h-full"
+                />
+
+                {/* Bottom-left (half height) */}
+                <CategoryCard
                   images={footwear}
                   title="Footwear"
+                  className="h-full"
                 />
               </div>
-
-              <CategoryCard
-                className="h-full object-cover"
-                images={watches}
-                title="Watches"
-              />
             </div>
           </div>
 
           <div className="px-14 flex flex-col gap-10">
             <Trending />
             <LookBook />
+            <BestSellers />
+            <Blog />
           </div>
         </div>
       </Container>
