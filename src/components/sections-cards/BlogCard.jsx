@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 function BlogCard({ items }) {
   return (
     <>
-      <div className="grid grid-cols-3 gap-10 my-10">
+      <div className="grid grid-cols-3 gap-5 my-10">
         {items.map((blogPost) => (
-          <div key={blogPost.id} className="flex flex-col justify-between">
+          <div key={blogPost.id} className="flex flex-col">
             <Link>
               {" "}
               <img
@@ -17,7 +17,7 @@ function BlogCard({ items }) {
             </Link>
             <div className="my-5 flex flex-col gap-3">
               <Link>
-                <h2 className="text-lg font-semibold">{blogPost.title}</h2>
+                <h2 className="text-lg font-semibold">{`${blogPost.title.slice(0, 40)}...`}</h2>
               </Link>
               <div className="text-gray-500 cursor-default">
                 <p>
@@ -31,7 +31,7 @@ function BlogCard({ items }) {
                   </span>
                 </p>
               </div>
-              <p className="text-gray-500 cursor-default">{blogPost.excerpt}</p>
+              <p className="text-gray-500 cursor-default">{`${blogPost.excerpt.slice(0, 95)}...`}</p>
             </div>
           </div>
         ))}
