@@ -3,7 +3,7 @@ import Container from "../ui/Container";
 import BlogCard from "../sections-cards/BlogCard";
 import blogPosts from "../../data/blog.json";
 
-function Blog() {
+function BlogSection() {
   const limit = blogPosts.slice(0, 3);
 
   return (
@@ -23,4 +23,4 @@ function Blog() {
   );
 }
 
-export default Blog;
+export default BlogSection;

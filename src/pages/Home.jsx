@@ -9,7 +9,7 @@ import accessories from "/images/accessories.jpg";
 import Trending from "../components/sections/Trending";
 import LookBook from "../components/sections/LookBook";
 import BestSellers from "../components/sections/BestSellers";
-import Blog from "../components/sections/Blog";
+import BlogSection from "../components/sections/BlogSection";
 
 // Static slide data for the hero section
 // (kept outside the component so it's not recreated on every render)
@@ -138,7 +138,7 @@ function Home() {
             <Trending />
             <LookBook />
             <BestSellers />
-            <Blog />
+            <BlogSection />
           </div>
         </div>
       </Container>
