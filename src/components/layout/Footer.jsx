@@ -55,7 +55,7 @@ function Footer() {
     <>
       <Container>
         <footer className=" bg-gray-100">
-          <section className="grid grid-cols-5 p-20">
+          <section className="grid lg:grid-cols-5 px-5 py-10 lg:p-20">
             <div className="flex flex-col gap-9">
               <Link to="/" className="text-3xl font-bold">
                 Élanora
@@ -89,7 +89,7 @@ function Footer() {
 
             <div className="flex flex-col gap-5">
               <h4>Categories</h4>
-              <ul className="flex flex-col gap-4  text-gray-500">
+              <ul className="hidden lg:flex flex-col gap-4  text-gray-500">
                 {categories.map((category, i) => (
                   <Link to={category.url} key={i}>
                     <li>{category.name}</li>
@@ -98,7 +98,7 @@ function Footer() {
               </ul>
             </div>
 
-            <div className="flex flex-col gap-4">
+            <div className="hidden lg:flex flex-col gap-4">
               <h4>Information</h4>
               <ul className="flex flex-col gap-4  text-gray-500">
                 {information.map((info, i) => (
@@ -109,7 +109,7 @@ function Footer() {
               </ul>
             </div>
 
-            <div className="flex flex-col gap-4">
+            <div className="hidden lg:flex flex-col gap-4">
               <h4>Useful Links</h4>
               <ul className="flex flex-col gap-4  text-gray-500">
                 {usefulLinks.map((usefulLink, i) => (
@@ -139,9 +139,9 @@ function Footer() {
             </div>
           </section>
 
-          <section className="bg-white py-5 px-20 flex justify-between">
+          <section className="bg-white py-5 px-20 flex flex-col lg:flex-row justify-between">
             <div>
-              <p>
+              <p className="text-center">
                 All Rights Reserved &copy; 2025{" "}
                 <span>
                   <Link
@@ -164,7 +164,7 @@ function Footer() {
             </div>
 
             <div>
-              <ul className="flex gap-5 text-gray-500">
+              <ul className="flex gap-5 items-center justify-center text-gray-500">
                 {footerMenus.map((footerMenu, i) => (
                   <Link key={i} to={footerMenu.url}>
                     <li>{footerMenu.name}</li>
