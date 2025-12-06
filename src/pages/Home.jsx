@@ -99,7 +99,7 @@ function Home() {
             })}
           </div>
 
-          <div className="grid grid-cols-2 gap-10 px-14 my-10">
+          <div className="grid grid-cols-2 gap-10 px-4 lg:px-14 my-10">
             {/* Left big card */}
             <CategoryCard
               images={women}
@@ -134,7 +134,7 @@ function Home() {
             </div>
           </div>
 
-          <div className="px-14 flex flex-col gap-10">
+          <div className="px-4 lg:px-14 flex flex-col gap-10">
             <Trending />
             <LookBook />
             <BestSellers />

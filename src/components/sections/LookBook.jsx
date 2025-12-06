@@ -8,9 +8,9 @@ function LookBook() {
   return (
     <>
       <Container>
-        <div className="grid grid-cols-2 gap-5">
+        <div className="grid md:grid-cols-2 gap-5">
           <Link className="relative group h-full">
-            <div className="relative overflow-hidden h-80">
+            <div className="relative overflow-hidden lg:h-80">
               <img
                 src={imageList}
                 alt="summer image"
@@ -25,7 +25,7 @@ function LookBook() {
           </Link>
 
           <Link className=" relative group h-full">
-            <div className="relative overflow-hidden h-80">
+            <div className="relative overflow-hidden lg:h-80">
               <img
                 src={summerImage}
                 alt="summer image"

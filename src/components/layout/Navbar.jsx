@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Container from "../ui/Container";
 import menuIcon from "/icons/menu.svg";
@@ -25,6 +25,20 @@ function Navbar() {
   ];
 
   const limit = icons.slice(0, 3);
+
+  // 🔒 Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    // Cleanup in case component unmounts while menu is open
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
 
   return (
     <>
@@ -88,7 +102,11 @@ function Navbar() {
               className={`
                 fixed inset-0 z-40
                 transform transition-transform duration-300 ease-in-out
-                ${isMenuOpen ? "translate-x-0" : "-translate-x-full"}
+                ${
+                  isMenuOpen
+                    ? "translate-x-0 pointer-events-auto"
+                    : "-translate-x-full pointer-events-none"
+                }
               `}
             >
               {/* dark background overlay */}
@@ -121,7 +139,7 @@ function Navbar() {
                       <Link
                         key={i}
                         to={menu.path}
-                        className="border-b border-gray-200 py-3 px-4"
+                        className="border-b border-gray-200 py-4 px-4"
                         onClick={() => setIsMenuOpen(false)} // close after navigation
                       >
                         <li>{menu.name}</li>
@@ -132,7 +150,7 @@ function Navbar() {
                       <Link
                         key={i}
                         to="/"
-                        className="flex items-center gap-3 border-b border-gray-200 py-3 px-4"
+                        className="flex items-center gap-3 border-b border-gray-200 py-4 px-4"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         <img
@@ -145,7 +163,7 @@ function Navbar() {
                     ))}
                   </ul>
 
-                  {/* help section sits below the list, still inside scroll if content is long */}
+                  {/* help section */}
                   <div className="px-4 py-5 border-t border-gray-200">
                     <p className="mb-2">Need help?</p>
                     <div>

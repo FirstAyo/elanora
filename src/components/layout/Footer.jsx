@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "../ui/Container";
 import { Link } from "react-router-dom";
 
 function Footer() {
+  const [openSections, setOpenSections] = useState({
+    categories: false,
+    information: false,
+    usefulLinks: false,
+  });
+
   const contactIcons = [
     {
       title: "6088 Chester St, Vancouver, BC, V5W 3B7",
@@ -51,11 +57,20 @@ function Footer() {
     { name: "Contact Us", url: "/contact" },
     { name: "Blog", url: "/blog" },
   ];
+
+  const toggleSection = (key) => {
+    setOpenSections((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
+
   return (
     <>
       <Container>
-        <footer className=" bg-gray-100">
-          <section className="grid lg:grid-cols-5 px-5 py-10 lg:p-20">
+        <footer className="bg-gray-100">
+          <section className="grid lg:grid-cols-5 px-5 py-10 lg:p-20 gap-8">
+            {/* Brand + contact + social */}
             <div className="flex flex-col gap-9">
               <Link to="/" className="text-3xl font-bold">
                 Élanora
@@ -76,7 +91,7 @@ function Footer() {
 
               <div className="flex items-center gap-5">
                 {socialIcons.map((social, i) => (
-                  <Link to={social.url} key={i} className="">
+                  <Link to={social.url} key={i}>
                     <img
                       src={social.icon}
                       alt={social.title}
@@ -87,9 +102,24 @@ function Footer() {
               </div>
             </div>
 
-            <div className="flex flex-col gap-5">
-              <h4>Categories</h4>
-              <ul className="hidden lg:flex flex-col gap-4  text-gray-500">
+            {/* Categories */}
+            <div className="flex flex-col gap-3">
+              <button
+                type="button"
+                className="flex items-center justify-between w-full lg:cursor-default"
+                onClick={() => toggleSection("categories")}
+              >
+                <h4 className="font-semibold">Categories</h4>
+                {/* + / - only visible on mobile */}
+                <span className="text-xl lg:hidden">
+                  {openSections.categories ? "-" : "+"}
+                </span>
+              </button>
+
+              <ul
+                className={`flex-col gap-4 text-gray-500
+                  ${openSections.categories ? "flex" : "hidden"} lg:flex`}
+              >
                 {categories.map((category, i) => (
                   <Link to={category.url} key={i}>
                     <li>{category.name}</li>
@@ -98,9 +128,23 @@ function Footer() {
               </ul>
             </div>
 
-            <div className="hidden lg:flex flex-col gap-4">
-              <h4>Information</h4>
-              <ul className="flex flex-col gap-4  text-gray-500">
+            {/* Information */}
+            <div className="flex flex-col gap-3">
+              <button
+                type="button"
+                className="flex items-center justify-between w-full lg:cursor-default"
+                onClick={() => toggleSection("information")}
+              >
+                <h4 className="font-semibold">Information</h4>
+                <span className="text-xl lg:hidden">
+                  {openSections.information ? "-" : "+"}
+                </span>
+              </button>
+
+              <ul
+                className={`flex-col gap-4 text-gray-500
+                  ${openSections.information ? "flex" : "hidden"} lg:flex`}
+              >
                 {information.map((info, i) => (
                   <Link to={info.url} key={i}>
                     <li>{info.name}</li>
@@ -109,9 +153,23 @@ function Footer() {
               </ul>
             </div>
 
-            <div className="hidden lg:flex flex-col gap-4">
-              <h4>Useful Links</h4>
-              <ul className="flex flex-col gap-4  text-gray-500">
+            {/* Useful Links */}
+            <div className="flex flex-col gap-3">
+              <button
+                type="button"
+                className="flex items-center justify-between w-full lg:cursor-default"
+                onClick={() => toggleSection("usefulLinks")}
+              >
+                <h4 className="font-semibold">Useful Links</h4>
+                <span className="text-xl lg:hidden">
+                  {openSections.usefulLinks ? "-" : "+"}
+                </span>
+              </button>
+
+              <ul
+                className={`flex-col gap-4 text-gray-500
+                  ${openSections.usefulLinks ? "flex" : "hidden"} lg:flex`}
+              >
                 {usefulLinks.map((usefulLink, i) => (
                   <Link to={usefulLink.url} key={i}>
                     <li>{usefulLink.name}</li>
@@ -120,8 +178,9 @@ function Footer() {
               </ul>
             </div>
 
+            {/* Newsletter */}
             <div className="flex flex-col gap-4">
-              <h4>Newsletter Signup</h4>
+              <h4 className="font-semibold">Newsletter Signup</h4>
               <p className="text-gray-500">
                 Subscribe to our newsletter and get 10% off your first purchase
               </p>
@@ -139,9 +198,9 @@ function Footer() {
             </div>
           </section>
 
-          <section className="bg-white pt-5 pb-20 lg:py-5 px-20 flex flex-col lg:flex-row justify-between">
+          <section className="bg-white pt-5 pb-20 lg:py-5 px-5 lg:px-20 flex flex-col lg:flex-row justify-between gap-4">
             <div>
-              <p className="text-center">
+              <p className="text-center text-sm lg:text-base">
                 All Rights Reserved &copy; 2025{" "}
                 <span>
                   <Link
@@ -164,7 +223,7 @@ function Footer() {
             </div>
 
             <div>
-              <ul className="flex gap-5 items-center justify-center text-gray-500">
+              <ul className="flex flex-wrap gap-5 items-center justify-center text-gray-500 text-sm lg:text-base">
                 {footerMenus.map((footerMenu, i) => (
                   <Link key={i} to={footerMenu.url}>
                     <li>{footerMenu.name}</li>

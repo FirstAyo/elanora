@@ -8,7 +8,9 @@ function Blog() {
   return (
     <>
       <Container>
-        <BlogCard items={blogPosts} />
+        <div className="px-4">
+          <BlogCard items={blogPosts} />
+        </div>
       </Container>
     </>
   );
