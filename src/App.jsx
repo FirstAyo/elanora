@@ -8,6 +8,7 @@ import About from "./pages/About";
 import PrivacyPage from "./pages/PrivacyPage";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
+import BottomNav from "./components/layout/BottomNav";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/privacy" element={<PrivacyPage />} />
       </Routes>
       <Footer />
+      <BottomNav wishlistCount={0} cartCount={0} />
     </BrowserRouter>
   );
 }

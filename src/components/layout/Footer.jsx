@@ -139,7 +139,7 @@ function Footer() {
             </div>
           </section>
 
-          <section className="bg-white py-5 px-20 flex flex-col lg:flex-row justify-between">
+          <section className="bg-white pt-5 pb-20 lg:py-5 px-20 flex flex-col lg:flex-row justify-between">
             <div>
               <p className="text-center">
                 All Rights Reserved &copy; 2025{" "}
