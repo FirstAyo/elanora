@@ -4,7 +4,7 @@ import BlogCard from "../sections-cards/BlogCard";
 import blogPosts from "../../data/blog.json";
 
 function BlogSection() {
-  const limit = blogPosts.slice(0, 3);
+  const limit = blogPosts.slice(0, 4);
 
   return (
     <>

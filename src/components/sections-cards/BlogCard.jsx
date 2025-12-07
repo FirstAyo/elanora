@@ -5,7 +5,7 @@ function BlogCard({ items }) {
   return (
     <>
       {/* Grid of blog cards */}
-      <div className="grid gap-10 my-10 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-5 my-10 md:grid-cols-2 lg:grid-cols-4">
         {items.map((post) => {
           const blogLink = post.slug
             ? `/blog/${post.slug}`

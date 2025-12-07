@@ -1,9 +1,11 @@
 import React from "react";
+import collections from "../data/collections.json";
+import CollectionsPage from "../components/sections-cards/CollectionsPage";
 
 function Shop() {
   return (
     <div>
-      <h1>Shopping Page</h1>
+      <CollectionsPage collections={collections} />
     </div>
   );
 }

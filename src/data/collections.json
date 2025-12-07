@@ -2,37 +2,37 @@
   {
     "id": 1,
     "name": "Accessories",
-    "image": "/images/collections/accessories.jpg",
+    "image": "/images/accessories.jpg",
     "url": "/collections/accessories"
   },
   {
     "id": 2,
     "name": "All",
-    "image": "/images/collections/all.jpg",
+    "image": "/images/women.jpg",
     "url": "/collections/all"
   },
   {
     "id": 3,
     "name": "Armchairs",
-    "image": "/images/collections/armchairs.jpg",
+    "image": "/images/watches.jpg",
     "url": "/collections/armchairs"
   },
   {
     "id": 4,
     "name": "Automated Collection",
-    "image": "/images/collections/automated.jpg",
+    "image": "/images/women-1.jpg",
     "url": "/collections/automated"
   },
   {
     "id": 5,
     "name": "Bags",
-    "image": "/images/collections/bags.jpg",
+    "image": "/images/summer.jpg",
     "url": "/collections/bags"
   },
   {
     "id": 6,
     "name": "Bedroom Collection",
-    "image": "/images/collections/bedroom.jpg",
+    "image": "/images/hoodie.jpg",
     "url": "/collections/bedroom"
   }
 ]

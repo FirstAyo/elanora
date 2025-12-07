@@ -99,7 +99,7 @@ function Home() {
             })}
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-5 lg:gap-10 px-4 my-10">
+          <div className="grid md:grid-cols-2 gap-5 lg:gap-10 px-4 my-10">
             {/* Left big card */}
             <CategoryCard
               images={women}
