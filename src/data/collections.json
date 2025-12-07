@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Accessories",
+    "image": "/images/collections/accessories.jpg",
+    "url": "/collections/accessories"
+  },
+  {
+    "id": 2,
+    "name": "All",
+    "image": "/images/collections/all.jpg",
+    "url": "/collections/all"
+  },
+  {
+    "id": 3,
+    "name": "Armchairs",
+    "image": "/images/collections/armchairs.jpg",
+    "url": "/collections/armchairs"
+  },
+  {
+    "id": 4,
+    "name": "Automated Collection",
+    "image": "/images/collections/automated.jpg",
+    "url": "/collections/automated"
+  },
+  {
+    "id": 5,
+    "name": "Bags",
+    "image": "/images/collections/bags.jpg",
+    "url": "/collections/bags"
+  },
+  {
+    "id": 6,
+    "name": "Bedroom Collection",
+    "image": "/images/collections/bedroom.jpg",
+    "url": "/collections/bedroom"
+  }
+]
