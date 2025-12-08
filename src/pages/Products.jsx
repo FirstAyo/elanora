@@ -1,5 +1,5 @@
 import React from "react";
-import productsData from "../data/allproducts.json";
+import productsData from "../data/products.json";
 import ProductsPage from "../components/sections-cards/ProductsPage";
 
 function Products() {

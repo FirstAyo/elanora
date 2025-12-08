@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": "Hoodie",
+    "price": 45,
+    "image": "/images/hoodie.jpg",
+    "hoverImage": "/images/women-1.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Women Pants",
+    "price": 55,
+    "image": "/images/women-1.jpg",
+    "hoverImage": "/images/hoodie.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Women Dress",
+    "price": 55,
+    "image": "/images/women.jpg",
+    "hoverImage": "/images/footwear.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Women Shoe",
+    "price": 73,
+    "image": "/images/footwear.jpg",
+    "hoverImage": "/images/women.jpg"
+  }
+]

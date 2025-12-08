@@ -59,7 +59,7 @@ function Home() {
 
   return (
     <>
-      <Container>
+      <div>
         {/* Wrapper for the hero slider */}
         <div className="relative">
           {/* Key forces React to treat each slide as a distinct element,
@@ -99,7 +99,7 @@ function Home() {
             })}
           </div>
 
-          <div className="grid md:grid-cols-2 gap-5 lg:gap-10 px-4 my-10">
+          <Container><div className="grid md:grid-cols-2 gap-5 lg:gap-10 px-4 my-10">
             {/* Left big card */}
             <CategoryCard
               images={women}
@@ -132,7 +132,7 @@ function Home() {
                 />
               </div>
             </div>
-          </div>
+          </div></Container>
 
           <div className="px-4 flex flex-col gap-10">
             <Trending />
@@ -141,7 +141,7 @@ function Home() {
             <BlogSection />
           </div>
         </div>
-      </Container>
+      </div>
     </>
   );
 }
