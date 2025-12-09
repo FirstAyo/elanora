@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import Container from "../../ui/Container";
 import menuIcon from "/icons/menu.svg";
 import cartIcon from "/icons/shopping-cart.png";
 import searchIcon from "/icons/search.png";
 import DesktopNav from "./DesktopNav";
 import MobileNav from "./MobileNav";
-import SearchDrawer from "./SearchDrawer";
-import CartDrawer from "../../cart/CartDrawer";
 
-function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // mobile drawer
-  const [isSearchOpen, setIsSearchOpen] = useState(false); // search drawer
-
-  const [isCartOpen, setIsCartOpen] = useState(false);
+/**
+ * Navbar
+ *
+ * - DesktopNav + MobileNav share the same navMenus / icons.
+ * - Mobile menu (hamburger) state is local to this component.
+ * - Search + Cart drawers are controlled by parent (App) via props:
+ *    - onOpenSearch()
+ *    - onOpenCart()
+ */
+function Navbar({ onOpenSearch, onOpenCart }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // mobile menu only
 
   const navMenus = [
     { name: "Home", path: "/" },
@@ -33,56 +36,40 @@ function Navbar() {
 
   const limit = icons.slice(0, 3);
 
-  // Lock scroll when either overlay is open
+  // Lock scroll only when the MOBILE MENU (hamburger) is open
   useEffect(() => {
-    const shouldLock = isMenuOpen || isSearchOpen;
-    document.body.style.overflow = shouldLock ? "hidden" : "";
+    document.body.style.overflow = isMenuOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [isMenuOpen, isSearchOpen]);
+  }, [isMenuOpen]);
 
   return (
-    <>
+    <header>
       <Container>
-        <header>
-          {/* Desktop layout */}
-          <DesktopNav
-            navMenus={navMenus}
-            icons={icons}
-            onOpenSearch={() => setIsSearchOpen(true)}
-            onOpenCart={() => setIsCartOpen(true)}
-            // cartCount={cartCount}
-          />
+        {/* Desktop layout */}
+        <DesktopNav
+          navMenus={navMenus}
+          icons={icons}
+          onOpenSearch={onOpenSearch}
+          onOpenCart={onOpenCart}
+        />
 
-          {/* Mobile layout */}
-          <MobileNav
-            navMenus={navMenus}
-            limitIcons={limit}
-            isMenuOpen={isMenuOpen}
-            onOpenMenu={() => setIsMenuOpen(true)}
-            onCloseMenu={() => setIsMenuOpen(false)}
-            onOpenSearch={() => setIsSearchOpen(true)}
-            onOpenCart={() => setIsCartOpen(true)} // 👈 NEW
-            menuIcon={menuIcon}
-            searchIcon={searchIcon}
-            cartIcon={cartIcon}
-          />
-
-          {/* Search drawer (shared for desktop + mobile) */}
-          <SearchDrawer
-            isOpen={isSearchOpen}
-            onClose={() => setIsSearchOpen(false)}
-            searchIcon={searchIcon}
-          />
-
-          <CartDrawer
-            isOpen={isCartOpen}
-            onClose={() => setIsCartOpen(false)}
-          />
-        </header>
+        {/* Mobile layout */}
+        <MobileNav
+          navMenus={navMenus}
+          limitIcons={limit}
+          isMenuOpen={isMenuOpen}
+          onOpenMenu={() => setIsMenuOpen(true)}
+          onCloseMenu={() => setIsMenuOpen(false)}
+          onOpenSearch={onOpenSearch}
+          onOpenCart={onOpenCart}
+          menuIcon={menuIcon}
+          searchIcon={searchIcon}
+          cartIcon={cartIcon}
+        />
       </Container>
-    </>
+    </header>
   );
 }
 

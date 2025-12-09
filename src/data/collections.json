@@ -34,5 +34,29 @@
     "name": "Bedroom Collection",
     "image": "/images/hoodie.jpg",
     "url": "/collections/bedroom"
+  },
+  {
+    "id": 7,
+    "name": "Bedroom Collection",
+    "image": "/images/hoodie.jpg",
+    "url": "/collections/bedroom"
+  },
+  {
+    "id": 8,
+    "name": "Bedroom Collection",
+    "image": "/images/hoodie.jpg",
+    "url": "/collections/bedroom"
+  },
+  {
+    "id": 9,
+    "name": "Bedroom Collection",
+    "image": "/images/hoodie.jpg",
+    "url": "/collections/bedroom"
+  },
+  {
+    "id": 10,
+    "name": "Bedroom Collection",
+    "image": "/images/hoodie.jpg",
+    "url": "/collections/bedroom"
   }
 ]

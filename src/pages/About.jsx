@@ -73,25 +73,25 @@ function About() {
         {/* background image strip */}
         <div className="absolute inset-0">
           <img
-            src="/images/hoodie.jpg" // add any lifestyle image here
+            src="/images/about-us.jpg" // add any lifestyle image here
             alt="Élanora studio"
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-white/70 " />
+          <div className="absolute inset-0 bg-black/70 " />
         </div>
 
         <div className="relative px-4 py-14 sm:py-16 lg:py-20">
           <Container>
-            <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr),minmax(0,0.9fr)] items-center">
+            <div className="grid gap-10 lg:grid-cols-2 items-center">
               {/* Left: text */}
               <div className="space-y-5 sm:space-y-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white">
                   About Élanora
                 </p>
-                <h1 className="text-3xl font-semibold leading-tight text-gray-900 sm:text-4xl lg:text-5xl">
+                <h1 className="text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl">
                   A calmer way to shop the clothes you actually love to wear.
                 </h1>
-                <p className="max-w-xl text-sm text-gray-600 sm:text-base">
+                <p className="max-w-xl text-sm text-white">
                   Élanora was born from a simple idea: make it easier to build a
                   wardrobe that feels like you. No endless scrolling, no loud
                   trends—just thoughtful pieces, styled in a way that fits your
@@ -107,7 +107,7 @@ function About() {
                   </Link>
                   <Link
                     to="/contact"
-                    className="rounded-full border border-gray-300 px-6 py-2.5 text-sm font-medium text-gray-900 transition hover:border-gray-900 hover:bg-gray-900 hover:text-white"
+                    className="rounded-full border border-gray-300 px-6 py-2.5 text-sm font-medium text-white transition hover:border-blue-300 hover:bg-gray-900 hover:text-blue-300"
                   >
                     Talk to us
                   </Link>
@@ -115,7 +115,7 @@ function About() {
               </div>
 
               {/* Right: stats card */}
-              <div className="rounded-3xl border border-gray-100 bg-white/80 p-6 shadow-sm backdrop-blur sm:p-7 lg:p-8">
+              <div className="rounded-3xl border border-gray-100 bg-white/90 p-6 shadow-sm backdrop-blur sm:p-7 lg:p-8">
                 <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">
                   In numbers
                 </p>
@@ -166,25 +166,25 @@ function About() {
 
             {/* small media grid */}
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              <div className="col-span-2 overflow-hidden rounded-3xl">
+              <div className="col-span-2 overflow-hidden rounded-xl">
                 <img
                   src="/images/image-1.jpg"
                   alt="Moodboard in the Élanora studio"
                   className="h-52 w-full object-cover sm:h-60 lg:h-64"
                 />
               </div>
-              <div className="overflow-hidden rounded-3xl">
+              <div className="overflow-hidden rounded-xl">
                 <img
                   src="/images/image-2.jpg"
                   alt="Fabric swatches and accessories"
-                  className="h-32 w-full object-cover sm:h-40 lg:h-44"
+                  className="h-32 w-full object-cover sm:h-40 lg:h-64"
                 />
               </div>
-              <div className="overflow-hidden rounded-3xl">
+              <div className="overflow-hidden rounded-xl">
                 <img
                   src="/images/image-3.jpg"
                   alt="Packing orders with care"
-                  className="h-32 w-full object-cover sm:h-40 lg:h-44"
+                  className="h-32 w-full object-cover sm:h-40 lg:h-64"
                 />
               </div>
             </div>

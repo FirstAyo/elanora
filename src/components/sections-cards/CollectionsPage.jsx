@@ -127,10 +127,10 @@ function CollectionsPage({
                   type="button"
                   onClick={() => handlePageChange(safePage - 1)}
                   disabled={safePage === 1}
-                  className={`px-2 py-1 ${
+                  className={`px-3 py-1 rounded-full border ${
                     safePage === 1
-                      ? "cursor-not-allowed text-gray-300"
-                      : "text-gray-600 hover:text-black"
+                      ? "cursor-not-allowed border-gray-200 text-gray-300"
+                      : "border-gray-300 text-gray-700 hover:border-gray-900 hover:text-black"
                   }`}
                 >
                   Prev
@@ -165,10 +165,10 @@ function CollectionsPage({
                         key={page}
                         type="button"
                         onClick={() => handlePageChange(page)}
-                        className={`px-3 py-1 ${
+                        className={`h-8 w-8 rounded-full text-sm font-medium transition-colors ${
                           isActive
-                            ? "font-semibold text-black underline underline-offset-4"
-                            : "text-gray-600 hover:text-black"
+                            ? "bg-gray-900 text-white"
+                            : "bg-white border border-gray-300 text-gray-700 hover:border-gray-900 hover:text-black"
                         }`}
                       >
                         {page}
@@ -182,10 +182,10 @@ function CollectionsPage({
                   type="button"
                   onClick={() => handlePageChange(safePage + 1)}
                   disabled={safePage === totalPages}
-                  className={`px-2 py-1 ${
+                  className={`px-3 py-1 rounded-full border ${
                     safePage === totalPages
-                      ? "cursor-not-allowed text-gray-300"
-                      : "text-gray-600 hover:text-black"
+                      ? "cursor-not-allowed border-gray-200 text-gray-300"
+                      : "border-gray-300 text-gray-700 hover:border-gray-900 hover:text-black"
                   }`}
                 >
                   Next
