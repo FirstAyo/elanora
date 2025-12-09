@@ -1,6 +1,8 @@
 import React, { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import Container from "../ui/Container";
+import { useCart } from "../../context/CartContext";
+import sidebarIcon from "/icons/sidebar.svg";
 
 /**
  * Utility map for color name -> hex value
@@ -30,9 +32,12 @@ const COLOR_MAP = {
  *      (same shape as your products.json items)
  */
 function ProductsPage({ products = [] }) {
+  const { addToCart } = useCart(); // ⬅️ get addToCart
+
   // --- state for basic filtering + sorting ---
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [availability, setAvailability] = useState("all"); // "all" | "in-stock" | "out-of-stock"
+
   const [selectedColor, setSelectedColor] = useState("all");
   const [sortValue, setSortValue] = useState("featured");
   const [currentPage, setCurrentPage] = useState(1);
@@ -465,10 +470,10 @@ function ProductsPage({ products = [] }) {
           <button
             type="button"
             onClick={() => setIsFilterOpen(true)}
-            className="fixed left-1 top-1/2 z-20 flex -translate-y-1/2 items-center justify-center rounded-full bg-white/95 px-1 py-3 text-[10px] font-semibold tracking-[0.2em] text-gray-700 shadow-md border border-gray-200 lg:hidden"
+            className="fixed left-1 top-1/2 z-20 flex -translate-y-1/2 items-center justify-center bg-white/95 px-3 py-3 text-[10px] font-semibold tracking-[0.2em] text-gray-700 shadow-md border border-gray-200 lg:hidden"
           >
             {/* Rotate text to make a vertical-looking pill */}
-            <span className="-rotate-90">FILTER</span>
+            <img src={sidebarIcon} alt="sidebar icon" className="w-8 h-8" />
           </button>
 
           {/* ================= LEFT SIDEBAR (DESKTOP) ================= */}
@@ -555,7 +560,8 @@ function ProductsPage({ products = [] }) {
 
                           <button
                             type="button"
-                            className="rounded-full border border-gray-300 px-3 py-1 font-medium text-gray-900 transition-colors hover:border-gray-900 hover:bg-gray-900 hover:text-white"
+                            onClick={() => addToCart(product)}
+                            className="rounded-full border border-gray-300 px-3 py-1 cursor-pointer font-medium text-gray-900 transition-colors hover:border-gray-900 hover:bg-gray-900 hover:text-white"
                           >
                             Add to cart
                           </button>

@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useCart } from "../../../context/CartContext";
 
-function DesktopNav({ navMenus, icons, onOpenSearch }) {
+function DesktopNav({ navMenus, icons, onOpenSearch, onOpenCart }) {
+  const { cartCount } = useCart(); // read cart count from context
+
   return (
     <>
       {/* desktop menu */}
@@ -13,7 +16,6 @@ function DesktopNav({ navMenus, icons, onOpenSearch }) {
             aria-label="Élanora homepage"
           >
             <span>Élanora</span>
-            {/* small pill tag next to logo */}
             <span className="hidden rounded-full border border-gray-200 px-2 py-0.5 text-[10px] font-medium uppercase tracking-[0.16em] text-gray-500 sm:inline">
               Studio
             </span>
@@ -25,18 +27,18 @@ function DesktopNav({ navMenus, icons, onOpenSearch }) {
             aria-label="Primary navigation"
           >
             <ul className="flex items-center gap-6 xl:gap-8">
-              {navMenus.map((menu, index) => (
-                <li key={index}>
+              {navMenus.map((menu) => (
+                <li key={menu.name}>
                   <Link
                     to={menu.path}
                     className="
-                    relative pb-1 text-gray-700 transition-colors
-                    hover:text-gray-900
-                    after:absolute after:inset-x-0 after:-bottom-[2px]
-                    after:h-[2px] after:origin-center after:scale-x-0
-                    after:bg-gray-900 after:transition-transform after:duration-200
-                    hover:after:scale-x-100
-                  "
+                      relative pb-1 text-gray-700 transition-colors
+                      hover:text-gray-900
+                      after:absolute after:inset-x-0 after:-bottom-[2px]
+                      after:h-[2px] after:origin-center after:scale-x-0
+                      after:bg-gray-900 after:transition-transform after:duration-200
+                      hover:after:scale-x-100
+                    "
                   >
                     {menu.name}
                   </Link>
@@ -47,18 +49,38 @@ function DesktopNav({ navMenus, icons, onOpenSearch }) {
 
           {/* Right: icon actions */}
           <ul className="flex items-center gap-3 xl:gap-4">
-            {icons.map((icon, index) => (
-              <li key={index}>
-                <button
-                  type="button"
-                  aria-label={icon.name}
-                  onClick={onOpenSearch}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-600 shadow-sm transition hover:border-gray-900 hover:text-gray-900"
-                >
-                  <img src={icon.icon} alt="" className="h-4 w-4" />
-                </button>
-              </li>
-            ))}
+            {icons.map((icon) => {
+              const isCart = icon.name === "Cart";
+              const isSearch = icon.name === "Search";
+
+              const handleClick = () => {
+                if (isCart && onOpenCart) {
+                  onOpenCart(); // 👉 let Navbar open CartDrawer
+                } else if (isSearch && onOpenSearch) {
+                  onOpenSearch(); // 👉 let Navbar open Search drawer
+                }
+              };
+
+              return (
+                <li key={icon.name} className="relative">
+                  <button
+                    type="button"
+                    aria-label={icon.name}
+                    onClick={handleClick}
+                    className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-600 shadow-sm transition hover:border-gray-900 hover:text-gray-900"
+                  >
+                    <img src={icon.icon} alt="" className="h-4 w-4" />
+                  </button>
+
+                  {/* Cart badge */}
+                  {isCart && cartCount > 0 && (
+                    <span className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-black text-[10px] font-semibold text-white">
+                      {cartCount}
+                    </span>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </div>
       </section>

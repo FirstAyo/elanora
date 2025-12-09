@@ -1,12 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-function BlogCard({ items }) {
+function BlogCard({ items = [] }) {
+  // How many posts per page
+  const ITEMS_PER_PAGE = 8;
+
+  // Current page (1-based)
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // Total number of pages
+  const totalPages = Math.max(1, Math.ceil(items.length / ITEMS_PER_PAGE));
+
+  // Clamp the current page in case items length changes
+  const safePage = Math.min(Math.max(currentPage, 1), totalPages);
+
+  // Slice out only the posts for the current page
+  const startIndex = (safePage - 1) * ITEMS_PER_PAGE;
+  const visiblePosts = items.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+
+  const handlePageChange = (page) => {
+    if (page < 1 || page > totalPages) return;
+    setCurrentPage(page);
+    // optional: scroll back to top of the list
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <>
       {/* Grid of blog cards */}
       <div className="grid gap-5 my-10 md:grid-cols-2 lg:grid-cols-4">
-        {items.map((post) => {
+        {visiblePosts.map((post) => {
           const blogLink = post.slug
             ? `/blog/${post.slug}`
             : `/blog/${post.id}`;
@@ -82,12 +105,12 @@ function BlogCard({ items }) {
                   </h2>
                 </Link>
 
-                {/* Excerpt (clamped so height stays sane) */}
+                {/* Excerpt */}
                 <p className="text-sm text-gray-600 line-clamp-3">
                   {post.excerpt}
                 </p>
 
-                {/* Bottom row: pinned using mt-auto so all cards align */}
+                {/* Bottom row */}
                 <div className="mt-auto pt-3 flex items-center justify-between text-sm">
                   <Link
                     to={blogLink}
@@ -111,6 +134,62 @@ function BlogCard({ items }) {
           );
         })}
       </div>
+
+      {/* Pagination controls */}
+      {totalPages > 1 && (
+        <div className="mb-10 flex items-center justify-center gap-4 text-sm">
+          {/* Prev button */}
+          <button
+            type="button"
+            onClick={() => handlePageChange(safePage - 1)}
+            disabled={safePage === 1}
+            className={`px-3 py-1 rounded-full border ${
+              safePage === 1
+                ? "cursor-not-allowed border-gray-200 text-gray-300"
+                : "border-gray-300 text-gray-700 hover:border-gray-900 hover:text-black"
+            }`}
+          >
+            Prev
+          </button>
+
+          {/* Page numbers */}
+          <div className="flex items-center gap-2">
+            {Array.from({ length: totalPages }).map((_, i) => {
+              const page = i + 1;
+              const isActive = page === safePage;
+
+              return (
+                <button
+                  key={page}
+                  type="button"
+                  onClick={() => handlePageChange(page)}
+                  className={`h-8 w-8 rounded-full text-sm font-medium transition-colors ${
+                    isActive
+                      ? "bg-gray-900 text-white"
+                      : "bg-white border border-gray-300 text-gray-700 hover:border-gray-900 hover:text-black"
+                  }`}
+                >
+                  {page}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Next button */}
+          <button
+            type="button"
+            onClick={() => handlePageChange(safePage + 1)}
+            disabled={safePage === totalPages}
+            className={`px-3 py-1 rounded-full border ${
+              safePage === totalPages
+                ? "cursor-not-allowed border-gray-200 text-gray-300"
+                : "border-gray-300 text-gray-700 hover:border-gray-900 hover:text-black"
+            }`}
+          >
+            Next
+          </button>
+        </div>
+      )}
     </>
   );
 }

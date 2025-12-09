@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useCart } from "../../../context/CartContext";
 
 function MobileNav({
   navMenus,
@@ -7,10 +8,13 @@ function MobileNav({
   onOpenMenu,
   onCloseMenu,
   onOpenSearch,
+  onOpenCart, // 👈 NEW
   menuIcon,
   searchIcon,
   cartIcon,
 }) {
+  const { cartCount } = useCart();
+
   return (
     <>
       {/* mobile menu */}
@@ -38,21 +42,30 @@ function MobileNav({
 
           {/* Right-side icons */}
           <div className="flex items-center gap-2">
+            {/* Search */}
             <button
-              to="#"
               aria-label="Search"
               onClick={onOpenSearch}
               className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 bg-white shadow-sm hover:border-gray-900"
             >
               <img src={searchIcon} alt="" className="h-4 w-4" />
             </button>
-            <Link
-              to="#"
+
+            {/* Cart – now opens CartDrawer and shows badge */}
+            <button
+              type="button"
               aria-label="Cart"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 bg-white shadow-sm hover:border-gray-900"
+              onClick={onOpenCart} // 👈 tells Navbar to open CartDrawer
+              className="relative flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 bg-white shadow-sm hover:border-gray-900"
             >
               <img src={cartIcon} alt="" className="h-4 w-4" />
-            </Link>
+
+              {cartCount > 0 && (
+                <span className="absolute -right-1 -top-1 flex h-4 min-w-[1rem] items-center justify-center rounded-full bg-black px-[3px] text-[10px] font-semibold text-white">
+                  {cartCount}
+                </span>
+              )}
+            </button>
           </div>
         </div>
 

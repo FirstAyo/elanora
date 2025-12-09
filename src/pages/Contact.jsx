@@ -70,32 +70,32 @@ function Contact() {
   return (
     <main className="bg-white">
       {/* HERO: title + breadcrumb over soft image */}
-      <section className="relative h-40 sm:h-48 md:h-56 lg:h-64 overflow-hidden">
+      <section className="relative h-40 sm:h-48 md:h-56 lg:h-96 overflow-hidden">
         <img
-          src="/images/summer.jpg" // replace with any calm lifestyle / workspace image
+          src="/images/contact-us.jpg" // replace with any calm lifestyle / workspace image
           alt="Élanora studio desk with laptop and coffee"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-white/60" />
+        <div className="absolute inset-0 bg-black/60" />
 
         <div className="relative flex h-full items-center">
           <Container>
-            <div className="px-4 text-center space-y-3">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">
+            <div className="px-4 text-center space-y-3 text-white">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] ">
                 Contact
               </p>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-900">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold">
                 Let’s talk about your wardrobe.
               </h1>
               <nav aria-label="Breadcrumb">
-                <ol className="flex items-center justify-center gap-1 text-xs sm:text-sm text-gray-500">
+                <ol className="flex items-center justify-center gap-1 text-xs sm:text-sm">
                   <li>
                     <Link to="/" className="hover:underline">
                       Home
                     </Link>
                   </li>
                   <li aria-hidden="true">›</li>
-                  <li className="font-semibold text-gray-900">Contact</li>
+                  <li className="font-semibold">Contact</li>
                 </ol>
               </nav>
             </div>

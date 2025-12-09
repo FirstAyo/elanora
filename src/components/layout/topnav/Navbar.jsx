@@ -7,10 +7,13 @@ import searchIcon from "/icons/search.png";
 import DesktopNav from "./DesktopNav";
 import MobileNav from "./MobileNav";
 import SearchDrawer from "./SearchDrawer";
+import CartDrawer from "../../cart/CartDrawer";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // mobile drawer
   const [isSearchOpen, setIsSearchOpen] = useState(false); // search drawer
+
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   const navMenus = [
     { name: "Home", path: "/" },
@@ -48,6 +51,8 @@ function Navbar() {
             navMenus={navMenus}
             icons={icons}
             onOpenSearch={() => setIsSearchOpen(true)}
+            onOpenCart={() => setIsCartOpen(true)}
+            // cartCount={cartCount}
           />
 
           {/* Mobile layout */}
@@ -58,6 +63,7 @@ function Navbar() {
             onOpenMenu={() => setIsMenuOpen(true)}
             onCloseMenu={() => setIsMenuOpen(false)}
             onOpenSearch={() => setIsSearchOpen(true)}
+            onOpenCart={() => setIsCartOpen(true)} // 👈 NEW
             menuIcon={menuIcon}
             searchIcon={searchIcon}
             cartIcon={cartIcon}
@@ -68,6 +74,11 @@ function Navbar() {
             isOpen={isSearchOpen}
             onClose={() => setIsSearchOpen(false)}
             searchIcon={searchIcon}
+          />
+
+          <CartDrawer
+            isOpen={isCartOpen}
+            onClose={() => setIsCartOpen(false)}
           />
         </header>
       </Container>
